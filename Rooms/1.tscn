@@ -1,0 +1,216 @@
+[gd_scene load_steps=6 format=3 uid="uid://dohmuou0rqky5"]
+
+[ext_resource type="PackedScene" uid="uid://q82mxyd0ih11" path="res://Objects/Common/Platform.tscn" id="1_j5tix"]
+[ext_resource type="PackedScene" uid="uid://gyrdggw1v6d1" path="res://Objects/Common/Spike.tscn" id="2_sm5nl"]
+[ext_resource type="PackedScene" uid="uid://lgbuxwf1f2cs" path="res://Objects/Common/Block.tscn" id="3_yuard"]
+[ext_resource type="PackedScene" uid="uid://f66tf0sxea20" path="res://Objects/Common/Save.tscn" id="4_o0lq7"]
+[ext_resource type="PackedScene" uid="uid://pvfh6am3bu6k" path="res://Objects/Kid/Kid.tscn" id="5_eqlqq"]
+
+[node name="1" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(96, 416)
+
+[node name="Platform10" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(192, 352)
+
+[node name="Platform11" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(160, 416)
+
+[node name="Platform2" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(448, 96)
+
+[node name="Platform3" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(480, 96)
+
+[node name="Platform9" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(192, -64)
+
+[node name="Platform12" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(224, -64)
+
+[node name="Platform4" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(512, 96)
+
+[node name="Platform6" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(288, 192)
+
+[node name="Platform7" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(256, 224)
+
+[node name="Platform8" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(256, 352)
+
+[node name="Platform13" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(256, 416)
+
+[node name="Platform14" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(288, 416)
+
+[node name="Platform5" parent="." instance=ExtResource("1_j5tix")]
+position = Vector2(544, 96)
+
+[node name="Spike" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(240, 336)
+
+[node name="Spike13" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(176, 48)
+
+[node name="Spike14" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(208, 48)
+
+[node name="Spike2" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(352, 176)
+
+[node name="Spike19" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(512, 160)
+
+[node name="Spike17" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(336, 48)
+
+[node name="Spike9" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(560, 48)
+
+[node name="Spike3" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(208, 272)
+scale = Vector2(1, -1)
+
+[node name="Spike8" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(624, 144)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="Spike4" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(368, 112)
+scale = Vector2(1, -1)
+
+[node name="Spike10" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(528, 16)
+scale = Vector2(1, -1)
+
+[node name="Spike5" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(336, 112)
+scale = Vector2(1, -1)
+
+[node name="Spike16" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(304, 16)
+scale = Vector2(1, -1)
+
+[node name="Spike6" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(208, 112)
+scale = Vector2(1, -1)
+
+[node name="Spike7" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(176, 112)
+scale = Vector2(1, -1)
+
+[node name="Spike11" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(144, 80)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="Spike15" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(176, -80)
+rotation = 1.5708
+scale = Vector2(1, -1)
+
+[node name="Spike12" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(96, 80)
+rotation = 1.5708
+
+[node name="Spike18" parent="." instance=ExtResource("2_sm5nl")]
+position = Vector2(96, -16)
+rotation = 1.5708
+
+[node name="Block" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(240, 368)
+
+[node name="Block2" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(144, 432)
+
+[node name="Block11" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(136, 176)
+
+[node name="Block12" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(104, 176)
+
+[node name="Block29" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(64, -16)
+
+[node name="Block23" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(208, 80)
+
+[node name="Block26" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(304, -16)
+
+[node name="Block27" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(208, -80)
+
+[node name="Block28" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(240, -80)
+
+[node name="Block24" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(176, 80)
+
+[node name="Block25" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(64, 80)
+
+[node name="Block5" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(336, 208)
+
+[node name="Block6" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(368, 208)
+
+[node name="Block8" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(240, 240)
+
+[node name="Block9" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(208, 240)
+
+[node name="Block10" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(176, 240)
+
+[node name="Block7" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(400, 208)
+
+[node name="Block30" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(512, 192)
+
+[node name="Block13" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(336, 80)
+
+[node name="Block14" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(368, 80)
+
+[node name="Block15" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(400, 80)
+
+[node name="Block22" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(528, -16)
+
+[node name="Block16" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(432, 80)
+
+[node name="Block17" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(464, 80)
+
+[node name="Block18" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(496, 80)
+
+[node name="Block19" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(528, 80)
+
+[node name="Block20" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(560, 80)
+
+[node name="Block21" parent="." instance=ExtResource("3_yuard")]
+position = Vector2(656, 144)
+
+[node name="Save" parent="." instance=ExtResource("4_o0lq7")]
+position = Vector2(208, 208)
+
+[node name="Save2" parent="." instance=ExtResource("4_o0lq7")]
+position = Vector2(432, 48)
+
+[node name="Kid" parent="." instance=ExtResource("5_eqlqq")]
+position = Vector2(176, 224)

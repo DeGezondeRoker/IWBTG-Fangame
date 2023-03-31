@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://f66tf0sxea20"]
+
+[ext_resource type="Texture2D" uid="uid://kq7qkdt6ew5p" path="res://Assets/Common/Save.png" id="1_llhdy"]
+[ext_resource type="Script" path="res://Scripts/Common/Save.gd" id="1_muuut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otl5k"]
+size = Vector2(28, 20)
+
+[node name="Save" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_muuut")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_llhdy")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_otl5k")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

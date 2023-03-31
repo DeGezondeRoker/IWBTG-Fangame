@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://gyrdggw1v6d1"]
+
+[ext_resource type="Texture2D" uid="uid://0kx3qfom2au4" path="res://Assets/Common/Spike.png" id="1_2lfkj"]
+
+[node name="Spike" type="Area2D" groups=["killers"]]
+texture_filter = 1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_2lfkj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-16, 16)
+polygon = PackedVector2Array(0, 0, 0, 0, 16, -32, 32, 0)
+
+[node name="BloodParticleCollision" type="AnimatableBody2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BloodParticleCollision"]
+visible = false
+position = Vector2(-16, 16)
+polygon = PackedVector2Array(0, 0, 16, -32, 32, 0)
