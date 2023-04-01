@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://q82mxyd0ih11"]
+[gd_scene load_steps=4 format=3 uid="uid://q82mxyd0ih11"]
 
 [ext_resource type="Texture2D" uid="uid://0wo31m72tp5y" path="res://Assets/Common/Platform.png" id="1_6kwol"]
+[ext_resource type="Script" path="res://Scripts/Common/Platform.gd" id="1_kvyyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfnhc"]
 size = Vector2(32, 12)
 
 [node name="Platform" type="AnimatableBody2D" groups=["platforms"]]
+z_index = -1
 texture_filter = 1
+script = ExtResource("1_kvyyb")
 metadata/grants_jump = true
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(16, 8)
+[node name="SpriteL" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
 texture = ExtResource("1_6kwol")
+hframes = 3
+
+[node name="SpriteR" type="Sprite2D" parent="."]
+position = Vector2(24, 8)
+texture = ExtResource("1_6kwol")
+hframes = 3
+frame = 1
+
+[node name="ExtraSprites" type="Node2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 6)

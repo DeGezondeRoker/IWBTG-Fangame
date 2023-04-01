@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0x35p3p5fxw"]
+
+[ext_resource type="PackedScene" uid="uid://kaamt6fyl7wh" path="res://Objects/Movement/Path.tscn" id="1_fey3f"]
+
+[sub_resource type="Curve2D" id="Curve2D_qdt88"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 256, -200)
+}
+point_count = 2
+
+[node name="2" type="Node2D"]
+
+[node name="Path" parent="." instance=ExtResource("1_fey3f")]
+position = Vector2(32, -8)
+curve = SubResource("Curve2D_qdt88")

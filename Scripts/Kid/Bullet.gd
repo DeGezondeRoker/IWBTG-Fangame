@@ -14,3 +14,7 @@ func _process(_delta:float):
 		if move_and_collide(velocity):
 			moving = false
 			queue_free() # Will get an animation as opposed to just disappearing
+
+
+func _on_timer_timeout():
+	queue_free()

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kaamt6fyl7wh"]
+
+[ext_resource type="Script" path="res://Scripts/Movement/Path.gd" id="1_prvud"]
+
+[node name="Path" type="Path2D"]
+texture_filter = 1
+script = ExtResource("1_prvud")

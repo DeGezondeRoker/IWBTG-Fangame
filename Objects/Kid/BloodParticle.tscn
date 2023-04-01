@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b74lj7gs7fu4r"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://Scripts/BloodParticle.gd" id="1_fmdss"]
+[ext_resource type="Script" path="res://Scripts/Kid/BloodParticle.gd" id="1_fmdss"]
 [ext_resource type="Texture2D" uid="uid://cc3x37y0gfxmk" path="res://Assets/Kid/Blood.png" id="2_s4bt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61dy7"]
@@ -12,13 +12,13 @@ collision_mask = 6
 sync_to_physics = false
 script = ExtResource("1_fmdss")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_61dy7")
-disabled = true
-
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_s4bt5")
 hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_61dy7")
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

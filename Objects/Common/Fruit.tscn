@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqqhq7v0d4v52"]
+
+[ext_resource type="Texture2D" uid="uid://dkghrssk25fdd" path="res://Assets/Common/Fruit.png" id="1_ref1y"]
+
+[sub_resource type="Animation" id="Animation_onfur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_5f4f2"]
+resource_name = "default"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-1, 2), Vector2(1, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0w5eu"]
+_data = {
+"RESET": SubResource("Animation_onfur"),
+"default": SubResource("Animation_5f4f2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5patl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0m7p5"]
+
+[node name="Fruit" type="Area2D" groups=["killers"]]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("1_ref1y")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_0w5eu")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_5patl")
+
+[node name="BloodParticleCollision" type="AnimatableBody2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodParticleCollision"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_0m7p5")
+disabled = true

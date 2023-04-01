@@ -25,9 +25,13 @@ func _process(_delta:float):
 	var function := "_update_" + str(STATES.keys()[state]).to_lower()
 	call(function)
 	
+	if Input.is_action_pressed("teleport player"):
+		position = get_viewport().get_mouse_position()
+		$Sprite.show()
+		state = STATES.STATE_DEFAULT
+	
 	if timer > 0:
 		timer -= 1
-
 
 func _update_state_default():
 	velocity.y += GRAVITY
@@ -41,6 +45,10 @@ func _update_state_default():
 		facing = DIRECTIONS.LEFT
 
 	move_and_slide()
+	# This is (hopefully) a temporary to fix to the player getting stuck on edges at very precise positions
+	# I'm assuming this is an issue with Godot itself so maybe it'll get fixed in the future
+	if not is_on_floor():
+		velocity.y = get_real_velocity().y
 
 	if is_on_floor():
 		d_jump = true
@@ -61,7 +69,7 @@ func _update_state_default():
 
 
 func _update_state_dead():
-	if timer > 0:
+	if timer > 0 or Input.is_action_pressed("teleport player"):
 		var instance := load("res://Objects/Kid/BloodParticle.tscn")
 		for i in 6:
 			var id: AnimatableBody2D = instance.instantiate()
@@ -102,7 +110,7 @@ func kill_player():
 
 
 func _on_area_detector_area_entered(area:Area2D):
-	if area.is_in_group("killers"):
+	if area.is_in_group("killers") and state != STATES.STATE_DEAD:
 		kill_player()
 
 

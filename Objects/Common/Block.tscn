@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://lgbuxwf1f2cs"]
+[gd_scene load_steps=4 format=3]
 
+[ext_resource type="Script" path="res://Scripts/Common/Block.gd" id="1_n0odh"]
 [ext_resource type="Texture2D" uid="uid://dnoan6ep28jty" path="res://Assets/Common/Block.png" id="1_rfbf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k21r"]
@@ -9,9 +10,11 @@ size = Vector2(32, 32)
 texture_filter = 1
 collision_layer = 3
 collision_mask = 3
+script = ExtResource("1_n0odh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_rfbf2")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5k21r")

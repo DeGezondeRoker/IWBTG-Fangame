@@ -4,6 +4,5 @@
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
-position = Vector2(0, 128)
 
 [node name="1" parent="." instance=ExtResource("1_kt162")]
