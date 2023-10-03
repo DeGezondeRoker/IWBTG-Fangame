@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhcgwoh4p21g4"]
+
+[ext_resource type="Texture2D" uid="uid://2jkl4f7eeuob" path="res://Assets/Movement/Track.png" id="1_gexnf"]
+
+[node name="TrackSprite" type="Sprite2D"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("1_gexnf")
+hframes = 2
+frame = 1

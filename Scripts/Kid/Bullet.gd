@@ -1,20 +1,27 @@
 extends AnimatableBody2D
 
-var facing := 0
+var facing := DIRECTIONS.RIGHT
 var velocity := Vector2.ZERO
 var moving := true
 var origin : CharacterBody2D
 
-enum DIRECTIONS {RIGHT, LEFT}
+enum DIRECTIONS {RIGHT = 1, LEFT = -1}
 
 
-func _process(_delta:float):
+func _process(delta:float):
+	$Sprite.flip_h = facing == -1
 	if moving:
-		velocity.x = 15 if facing == 0 else -15
+		velocity.x = 15 * facing * 50 * delta
 		if move_and_collide(velocity):
+			$AnimationPlayer.play("impact")
+			$Timer2.start()
+			$Timer.stop()
 			moving = false
-			queue_free() # Will get an animation as opposed to just disappearing
 
 
 func _on_timer_timeout():
+	queue_free()
+
+
+func _on_timer_2_timeout():
 	queue_free()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqqhq7v0d4v52"]
+[gd_scene load_steps=8 format=3 uid="uid://dqqhq7v0d4v52"]
 
+[ext_resource type="Script" path="res://Scripts/Common/Fruit.gd" id="1_8doyl"]
 [ext_resource type="Texture2D" uid="uid://dkghrssk25fdd" path="res://Assets/Common/Fruit.png" id="1_ref1y"]
 
 [sub_resource type="Animation" id="Animation_onfur"]
@@ -19,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/path = NodePath("KidCollision/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/path = NodePath("KidCollision/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -64,11 +65,15 @@ _data = {
 "default": SubResource("Animation_5f4f2")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3mg3"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5patl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0m7p5"]
-
-[node name="Fruit" type="Area2D" groups=["killers"]]
+[node name="Fruit" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 16
+sync_to_physics = false
+script = ExtResource("1_8doyl")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -84,15 +89,13 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_e3mg3")
+
+[node name="KidCollision" type="Area2D" parent="." groups=["killers"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KidCollision"]
+visible = false
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_5patl")
-
-[node name="BloodParticleCollision" type="AnimatableBody2D" parent="."]
-visible = false
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodParticleCollision"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_0m7p5")
-disabled = true

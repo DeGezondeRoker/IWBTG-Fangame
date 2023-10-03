@@ -1,0 +1,1209 @@
+[gd_scene load_steps=14 format=3 uid="uid://d02rvb4jsn38y"]
+
+[ext_resource type="Script" path="res://Scripts/Global/Room.gd" id="1_26jgd"]
+[ext_resource type="PackedScene" uid="uid://xcmgada1gq11" path="res://Objects/Kid/Kid.tscn" id="1_ihgt6"]
+[ext_resource type="TileSet" uid="uid://n5r2tbdyke4f" path="res://Assets/Tilesets/Mountain.tres" id="3_qky3o"]
+[ext_resource type="PackedScene" uid="uid://lb26itieg3ir" path="res://Objects/Common/Entrance.tscn" id="4_gtc8m"]
+[ext_resource type="PackedScene" uid="uid://bgcnmsedmlf48" path="res://Objects/Common/Warp.tscn" id="5_cgqf5"]
+[ext_resource type="PackedScene" uid="uid://gyrdggw1v6d1" path="res://Objects/Common/Spike.tscn" id="6_4xxko"]
+[ext_resource type="PackedScene" uid="uid://e4jvb7t78nwe" path="res://Objects/Mountain/Platform.tscn" id="7_5ur7o"]
+[ext_resource type="PackedScene" uid="uid://f66tf0sxea20" path="res://Objects/Common/Save.tscn" id="8_atrlr"]
+[ext_resource type="PackedScene" uid="uid://kaamt6fyl7wh" path="res://Objects/Movement/Path.tscn" id="9_iq2ec"]
+[ext_resource type="PackedScene" uid="uid://bhcgwoh4p21g4" path="res://Objects/Movement/TrackSprite.tscn" id="10_spu8b"]
+[ext_resource type="PackedScene" uid="uid://dbv5pab6w6vpy" path="res://Objects/Gimmicks/LargeCylinder.tscn" id="11_ltp4b"]
+[ext_resource type="PackedScene" uid="uid://cr3kpwagorwbj" path="res://Objects/Gimmicks/Spring.tscn" id="12_87g80"]
+
+[sub_resource type="Curve2D" id="Curve2D_lv2q2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 208, -32, 0, 0, 0, 0, 208, 16, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, -32)
+}
+point_count = 5
+
+[node name="3" type="Node2D"]
+script = ExtResource("1_26jgd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="Kid" parent="." instance=ExtResource("1_ihgt6")]
+position = Vector2(2680, 160)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("3_qky3o")
+format = 2
+layer_0/tile_data = PackedInt32Array(983039, 65536, 0, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 2, 917504, 131072, 0, 983040, 393216, 4, 1048576, 65536, 1, 1114112, 65536, 1, 1179648, 65536, 2, 983041, 65536, 0, 1048577, 65536, 1, 1114113, 65536, 1, 1179649, 65536, 2, 983042, 131072, 0, 1048578, 393216, 4, 1114114, 65536, 1, 1179650, 65536, 2, 1048579, 65536, 0, 1114115, 65536, 1, 1179651, 65536, 2, 1048580, 65536, 0, 1114116, 65536, 1, 1179652, 65536, 2, 1048581, 327680, 4, 1114117, 393216, 4, 1179653, 65536, 2, 1114118, 65536, 0, 1179654, 65536, 2, 1114119, 65536, 0, 1179655, 65536, 2, 1114120, 458752, 4, 1179656, 65536, 2, 1114121, 65536, 1, 1179657, 65536, 2, 1048586, 65536, 0, 1114122, 65536, 1, 1179658, 65536, 2, 1048587, 65536, 0, 1114123, 65536, 1, 1179659, 65536, 2, 1048588, 131072, 0, 1114124, 393216, 4, 1179660, 65536, 2, 1114125, 65536, 0, 1179661, 65536, 2, 1114126, 131072, 0, 1179662, 131072, 2, 1114129, 0, 0, 1179665, 0, 2, 1114130, 65536, 0, 1179666, 65536, 2, 1114131, 65536, 0, 1179667, 65536, 2, 1179668, 65536, 2, 1179669, 65536, 2, 1114134, 65536, 1, 1179670, 65536, 2, 851991, 0, 1, 1048599, 65536, 1, 1114135, 65536, 1, 1179671, 65536, 2, 655384, 65536, 1, 720920, 65536, 1, 786456, 65536, 1, 851992, 65536, 1, 917528, 65536, 1, 983064, 65536, 1, 1048600, 65536, 1, 1114136, 65536, 1, 1179672, 65536, 2, 524313, 65536, 1, 589849, 65536, 1, 655385, 65536, 1, 720921, 65536, 1, 786457, 65536, 1, 851993, 65536, 1, 917529, 65536, 1, 983065, 65536, 1, 1048601, 65536, 1, 1114137, 65536, 1, 1179673, 65536, 2, 786443, 0, 2, 786444, 131072, 2, 786448, 0, 2, 786449, 458752, 3, 851985, 0, 2, 786450, 393216, 3, 851986, 131072, 2, 786451, 131072, 2, 983045, 196608, 0, 1048584, 262144, 4, 983048, 196608, 0, 1048585, 65536, 0, 589848, 65536, 1, 524312, 65536, 1, 458776, 65536, 1, 458777, 393216, 4, 720907, 458752, 3, 720908, 393216, 3, 720909, 131072, 2, 720912, 0, 0, 720913, 65536, 0, 720914, 458752, 4, 720915, 131072, 1, 655369, 262144, 0, 655370, 327680, 1, 720906, 0, 2, 589835, 0, 0, 655371, 458752, 4, 589836, 65536, 0, 655372, 65536, 1, 589837, 131072, 0, 655373, 131072, 1, 655378, 0, 0, 655379, 131072, 0, 458752, 131072, 1, 524287, 65536, 1, 589823, 393216, 3, 655359, 131072, 2, 655358, 262144, 3, 720894, 196608, 1, 786430, 196608, 1, 851966, 196608, 1, 917502, 196608, 1, 983038, 262144, 4, 524288, 131072, 2, 393217, 131072, 2, 327681, 131072, 1, 262145, 131072, 1, 196609, 131072, 1, 131073, 131072, 1, 65537, 393216, 3, 1, 65536, 1, 2, 131072, 1, 65538, 131072, 2, -65534, 131072, 1, -65535, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 458751, 65536, 1, 393216, 393216, 3, 393215, 65536, 1, 327679, 65536, 1, 262143, 65536, 1, 196607, 65536, 1, 131071, 65536, 1, 65535, 65536, 1, -1, 65536, 1, 589822, 0, 1, 524286, 0, 1, 458750, 0, 1, 393214, 0, 1, 327678, 0, 1, 262142, 0, 1, 196606, 0, 1, 131070, 0, 1, 65534, 0, 1, -2, 0, 1, 1048574, 0, 1, 1114110, 0, 1, 1179646, 0, 1, 1245182, 0, 2, -131070, 131072, 1, -196606, 131072, 1, -262142, 131072, 0, -262143, 65536, 0, -196610, 0, 0, -131074, 0, 1, -65538, 0, 1, -65537, 65536, 1, -131072, 65536, 1, -131071, 65536, 1, -196607, 65536, 1, -262144, 65536, 0, -196609, 65536, 0, -131073, 65536, 1, -196608, 65536, 1, 327687, 0, 0, 393223, 0, 2, 262152, 196608, 0, 327688, 327680, 4, 393224, 327680, 3, 458760, 196608, 2, 196619, 196608, 0, 262155, 196608, 1, 327691, 196608, 2, -262130, 0, 0, -196594, 0, 1, -131058, 0, 1, -65522, 0, 1, 14, 0, 1, 65550, 262144, 3, 131086, 196608, 1, 196622, 196608, 2, -262129, 131072, 0, -196593, 131072, 1, -131057, 131072, 1, -65521, 131072, 1, 15, 131072, 1, 65551, 131072, 2, 262162, 262144, 0, 262163, 327680, 1, 327699, 0, 2, 262164, 65536, 0, 393239, 393216, 4, 393240, 65536, 0, 393241, 131072, 0, 1048598, 458752, 4, 983062, 0, 1, 983063, 65536, 1, 917527, 458752, 4, 458778, 65536, 0, 458779, 131072, 0, 524316, 131072, 0, 589852, 131072, 2, 589851, 393216, 3, 524315, 393216, 4, 524314, 65536, 1, 589850, 65536, 1, 655386, 65536, 1, 720922, 65536, 1, 786458, 65536, 1, 851994, 393216, 3, 851995, 131072, 2, 786459, 131072, 1, 720923, 131072, 1, 655387, 131072, 1, 917530, 131072, 1, 983066, 131072, 1, 1048602, 131072, 1, 1114138, 131072, 1, 1179674, 131072, 2, 786455, 0, 1, 720919, 0, 1, 655383, 0, 1, 589847, 0, 1, 524311, 458752, 3, 458775, 65536, 1, 327700, 65536, 2, 262165, 131072, 0, 327702, 65536, 0, 327701, 458752, 3, 393238, 458752, 3, 458774, 0, 1, 524310, 0, 2, 393237, 0, 2, 1114132, 65536, 0, 1114133, 458752, 4, 1048597, 0, 0, 917526, 0, 0, 458802, 393216, 4, 524338, 65536, 1, 589874, 65536, 1, 655410, 65536, 1, 720946, 65536, 1, 786482, 65536, 1, 852018, 65536, 1, 917554, 65536, 1, 393265, 65536, 0, 524337, 65536, 1, 589873, 65536, 1, 655409, 65536, 1, 720945, 65536, 1, 458801, 65536, 1, 786481, 65536, 1, 852017, 65536, 1, 917553, 65536, 1, 983089, 65536, 1, 1048625, 65536, 1, 1114161, 65536, 1, 1179697, 65536, 2, 1114162, 65536, 1, 1048626, 65536, 1, 983090, 65536, 1, 1179698, 65536, 2, 524339, 393216, 4, 589876, 65536, 1, 589877, 131072, 1, 589875, 65536, 1, 655413, 393216, 4, 655412, 65536, 1, 655411, 65536, 1, 720947, 65536, 1, 720948, 65536, 1, 720949, 65536, 1, 786485, 65536, 1, 786484, 65536, 1, 786483, 65536, 1, 1179702, 65536, 2, 1179701, 65536, 2, 1179700, 65536, 2, 1179699, 65536, 2, 1114163, 65536, 1, 1048627, 65536, 1, 983091, 65536, 1, 917555, 65536, 1, 852019, 65536, 1, 917556, 65536, 1, 1114164, 65536, 1, 1048628, 65536, 1, 1048629, 65536, 1, 983093, 65536, 1, 917557, 65536, 1, 852021, 65536, 1, 852020, 65536, 1, 983092, 65536, 1, 1114165, 65536, 1, 1048630, 65536, 1, 983094, 65536, 1, 917558, 65536, 1, 852022, 65536, 1, 1114166, 65536, 1, 327703, 131072, 0, 65567, 196608, 1, 131103, 196608, 1, 196639, 196608, 1, 262175, 196608, 1, 327711, 196608, 1, 393247, 196608, 1, 458783, 196608, 1, 524319, 196608, 1, 589855, 196608, 2, 589858, 196608, 0, 655394, 196608, 1, 720930, 196608, 1, 786466, 196608, 1, 852002, 196608, 2, 65573, 196608, 1, 131109, 196608, 1, 196645, 196608, 1, 262181, 196608, 1, 327717, 196608, 1, 393253, 196608, 1, 458789, 196608, 1, 524325, 196608, 1, 589861, 196608, 1, 655397, 196608, 2, 917541, 196608, 0, 983077, 196608, 1, 1048613, 196608, 2, 786471, 196608, 0, 852007, 196608, 1, 917543, 196608, 1, 983079, 196608, 2, 589866, 196608, 0, 655402, 196608, 2, 65580, 196608, 1, 131116, 196608, 1, 196652, 196608, 1, 262188, 196608, 2, 458798, 0, 0, 524334, 0, 1, 589870, 0, 1, 655406, 0, 2, 327727, 196608, 0, 393263, 262144, 4, 458799, 458752, 4, 524335, 65536, 1, 589871, 65536, 1, 655407, 458752, 3, 720943, 0, 1, 786479, 0, 1, 852015, 0, 1, 917551, 0, 2, 393264, 65536, 0, 458800, 65536, 1, 524336, 65536, 1, 589872, 65536, 1, 655408, 65536, 1, 720944, 65536, 1, 786480, 65536, 1, 852016, 65536, 1, 917552, 458752, 3, 983088, 0, 1, 1048624, 0, 1, 1114160, 0, 1, 1179696, 0, 2, 524340, 65536, 0, 31, 196608, 1, -65505, 196608, 0, 37, 196608, 1, -65499, 196608, 0, 44, 196608, 1, -65492, 196608, 0, 393266, 131072, 0, 458803, 131072, 0, 524341, 131072, 0, 720950, 393216, 4, 786486, 65536, 1, -65482, 0, 0, 54, 0, 1, 65590, 0, 2, -65481, 65536, 0, 55, 65536, 1, 65591, 458752, 3, 131127, 0, 1, 196663, 0, 1, 262199, 0, 2, 720951, 65536, 0, 786487, 65536, 1, 852023, 65536, 1, 917559, 65536, 1, 983095, 65536, 1, 1048631, 65536, 1, 1114167, 65536, 1, 1179703, 65536, 2, -65480, 65536, 0, 56, 65536, 1, 65592, 65536, 1, 131128, 65536, 1, 196664, 65536, 1, 262200, 458752, 3, 327736, 262144, 3, 393272, 196608, 2, 720952, 65536, 0, 786488, 65536, 1, 852024, 65536, 1, 917560, 65536, 1, 983096, 65536, 1, 1048632, 65536, 1, 1114168, 65536, 1, 1179704, 65536, 2, -65479, 65536, 0, 57, 65536, 1, 65593, 65536, 1, 131129, 65536, 1, 196665, 393216, 3, 262201, 131072, 1, 327737, 131072, 2, 720953, 131072, 0, 786489, 393216, 4, 852025, 65536, 1, 917561, 65536, 1, 983097, 65536, 1, 1048633, 65536, 1, 1114169, 65536, 1, 1179705, 65536, 2, -65478, 65536, 0, 58, 65536, 1, 65594, 65536, 1, 131130, 65536, 1, 196666, 65536, 2, 917562, 65536, 1, 983098, 65536, 1, 1048634, 65536, 1, 1114170, 65536, 1, 1179706, 65536, 2, -65477, 65536, 0, 59, 65536, 1, 65595, 65536, 1, 131131, 65536, 1, 196667, 458752, 3, 262203, 0, 1, 327739, 0, 1, 393275, 0, 1, 458811, 262144, 3, 524347, 196608, 2, 786491, 65536, 0, 852027, 65536, 1, 917563, 65536, 1, 983099, 393216, 3, 1048635, 131072, 1, 1114171, 131072, 1, 1179707, 131072, 2, -65476, 65536, 0, 60, 65536, 1, 65596, 65536, 1, 131132, 65536, 1, 196668, 65536, 1, 262204, 65536, 1, 327740, 393216, 3, 393276, 131072, 1, 458812, 131072, 2, 786492, 65536, 0, 852028, 393216, 3, 917564, 131072, 1, 983100, 131072, 2, -65475, 65536, 0, 61, 65536, 1, 65597, 65536, 1, 131133, 65536, 1, 196669, 65536, 1, 262205, 65536, 1, 327741, 65536, 2, 786493, 131072, 0, 852029, 131072, 2, -65474, 65536, 0, 62, 65536, 1, 65598, 65536, 1, 131134, 65536, 1, 196670, 65536, 1, 262206, 65536, 1, 327742, 458752, 3, 393278, 0, 2, -65473, 65536, 0, 63, 65536, 1, 65599, 65536, 1, 131135, 65536, 1, 196671, 65536, 1, 262207, 65536, 1, 327743, 65536, 1, 393279, 458752, 3, 458815, 0, 1, 524351, 0, 2, -65472, 65536, 0, 64, 65536, 1, 65600, 65536, 1, 131136, 65536, 1, 196672, 65536, 1, 262208, 65536, 1, 327744, 65536, 1, 393280, 393216, 3, 458816, 131072, 1, 524352, 327680, 3, 589888, 196608, 2, -65471, 65536, 0, 65, 65536, 1, 65601, 65536, 1, 131137, 65536, 1, 196673, 65536, 1, 262209, 65536, 1, 327745, 65536, 1, 393281, 65536, 2, -65470, 65536, 0, 66, 65536, 1, 65602, 65536, 1, 131138, 65536, 1, 196674, 65536, 1, 262210, 65536, 1, 327746, 393216, 3, 393282, 131072, 2, -65469, 65536, 0, 67, 65536, 1, 65603, 65536, 1, 131139, 65536, 1, 196675, 65536, 1, 262211, 65536, 1, 327747, 65536, 2, -65468, 65536, 0, 68, 65536, 1, 65604, 65536, 1, 131140, 65536, 1, 196676, 65536, 1, 262212, 65536, 1, 327748, 65536, 2, -65467, 65536, 0, 69, 65536, 1, 65605, 65536, 1, 131141, 65536, 1, 196677, 65536, 1, 262213, 65536, 1, 327749, 65536, 2, -65466, 65536, 0, 70, 65536, 1, 65606, 65536, 1, 131142, 65536, 1, 196678, 65536, 1, 262214, 65536, 1, 327750, 65536, 2, -65465, 65536, 0, 71, 65536, 1, 65607, 65536, 1, 131143, 65536, 1, 196679, 65536, 1, 262215, 65536, 1, 327751, 458752, 3, -65464, 65536, 0, 72, 65536, 1, 65608, 65536, 1, 131144, 65536, 1, 196680, 65536, 1, 262216, 65536, 1, 327752, 393216, 3, -65463, 65536, 0, 73, 65536, 1, 65609, 65536, 1, 131145, 65536, 1, 196681, 65536, 1, 262217, 65536, 1, 327753, 65536, 2, -65462, 131072, 0, 74, 131072, 1, 65610, 131072, 1, 131146, 131072, 1, 196682, 131072, 1, 262218, 131072, 1, 327754, 131072, 2, 720965, 131072, 2, 720964, 0, 2, 655428, 0, 0, 655429, 131072, 0, 393287, 0, 2, 393288, 131072, 2, 393299, 0, 2, 327763, 0, 0, 327764, 65536, 0, 393300, 65536, 2, 393301, 65536, 2, 327765, 65536, 0, 327766, 131072, 0, 786490, 65536, 0, 852026, 65536, 1, 655414, 131072, 0, 393302, 327680, 3, 458838, 196608, 1, 327774, 65536, 0, 393310, 65536, 1, 458846, 458752, 3, 458847, 65536, 1, 393311, 65536, 1, 327775, 65536, 0, 327776, 65536, 0, 393312, 65536, 1, 393313, 65536, 1, 327777, 65536, 0, 327778, 65536, 0, 393314, 65536, 1, 458848, 65536, 1, 524383, 65536, 1, 589919, 65536, 2, 589920, 327680, 3, 524384, 393216, 3, 458849, 65536, 1, 458845, 0, 2, 393309, 0, 1, 327773, 0, 0, 131162, 131072, 2, 65626, 131072, 1, 90, 131072, 1, -65446, 131072, 0, 458850, 65536, 1, 524386, 458752, 3, 589922, 262144, 3, 524385, 65536, 2, 720992, 196608, 1, 655456, 196608, 1, 786528, 196608, 1, 852064, 196608, 2, 655458, 196608, 2, 524382, 0, 1, 589918, 262144, 3, 655454, 196608, 2, 458851, 393216, 3, 393315, 65536, 1, 327779, 65536, 0, 327780, 65536, 0, 327781, 131072, 0, 393317, 131072, 1, 393316, 65536, 1, 458852, 65536, 2, 458853, 327680, 3, 524387, 131072, 1, 589923, 131072, 2, 524389, 196608, 1, 589925, 196608, 2, 655465, 327680, 4, 589929, 196608, 0, 721001, 0, 5, 196716, 196608, 2, 131180, 327680, 3, 65644, 393216, 3, 108, 65536, 1, -65428, 65536, 0, 589935, 0, 0, 655471, 458752, 4, 721007, 458752, 3, 786543, 0, 2, 655470, 0, 0, 721006, 0, 2, 655464, 0, 0, 721000, 0, 1, 786536, 0, 2, 786537, 327680, 3, 852073, 196608, 2, 721002, 393216, 0, 721008, 65536, 1, 786544, 458752, 3, 852080, 0, 2, 655472, 65536, 1, 589936, 458752, 4, 524400, 0, 1, 458864, 0, 1, 393328, 0, 1, 327792, 0, 0, 327793, 131072, 0, 393329, 131072, 1, 458865, 131072, 1, 524401, 131072, 1, 786545, 131072, 1, 852081, 131072, 2, 721009, 131072, 1, 655473, 131072, 1, 589937, 131072, 1, 196712, 0, 2, 196713, 131072, 2, 131176, 458752, 3, 65640, 65536, 1, 65641, 393216, 3, 105, 65536, 1, -65431, 65536, 0, -65432, 65536, 0, 104, 65536, 1, 131177, 131072, 1, 106, 65536, 1, -65430, 65536, 0, 65642, 65536, 2, -65429, 65536, 0, 107, 65536, 1, 65643, 458752, 3, 131179, 0, 2, 131175, 0, 2, 65639, 0, 1, 103, 458752, 3, 102, 0, 2, -65433, 65536, 0, -65434, 0, 0, 65645, 65536, 2, 109, 65536, 1, -65427, 65536, 0, -65426, 65536, 0, 110, 65536, 1, -65425, 131072, 0, 786540, 196608, 0, 852076, 196608, 1, 917612, 196608, 2, 196718, 196608, 2, 131182, 262144, 3, 65646, 458752, 3, 131183, 131072, 2, 65647, 131072, 1, 111, 131072, 1, 196697, 196608, 2, 131161, 262144, 3, 65625, 0, 1, 89, 458752, 3, -65447, 65536, 0, 88, 0, 2, -65448, 0, 0, 524374, 196608, 2)
+
+[node name="EntranceID0" parent="." instance=ExtResource("4_gtc8m")]
+position = Vector2(80, 440)
+animation = 2
+
+[node name="Warp" parent="." instance=ExtResource("5_cgqf5")]
+position = Vector2(80, 432)
+entrance_id = 1
+animation = true
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(432, 528)
+priority = 1
+
+[node name="Spike6" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(592, 528)
+priority = 1
+
+[node name="Spike21" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(656, 400)
+rotation = 1.57079
+priority = 1
+
+[node name="Spike22" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1040, 304)
+rotation = 1.57079
+priority = 1
+
+[node name="Spike10" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(624, 304)
+priority = 1
+
+[node name="Spike18" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(528, 336)
+priority = 1
+
+[node name="Spike11" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(432, 272)
+priority = 1
+
+[node name="Spike23" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(368, 80)
+priority = 1
+
+[node name="Spike28" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1104, 272)
+priority = 1
+
+[node name="Spike34" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1360, 272)
+priority = 1
+
+[node name="Spike35" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1488, 208)
+priority = 1
+
+[node name="Spike40" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3280, 304)
+rotation = 1.57079
+priority = 1
+
+[node name="Spike42" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3376, 272)
+priority = 1
+
+[node name="Spike77" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3408, 336)
+priority = 1
+
+[node name="Spike83" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3472, 368)
+priority = 1
+
+[node name="Spike80" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3344, 304)
+priority = 1
+
+[node name="Spike43" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3472, 144)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike84" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3568, 112)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike81" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3344, 144)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike89" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2896, 112)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike90" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2864, 144)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike92" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2768, 304)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike91" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2832, 48)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike82" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3368, 136)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike85" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3384, 136)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike86" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3528, 136)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike87" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3544, 136)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike88" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3448, 104)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike44" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3568, 272)
+priority = 1
+
+[node name="Spike41" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3272, 280)
+rotation = 1.57079
+priority = 1
+style = 1
+
+[node name="Spike78" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3544, 312)
+priority = 1
+style = 1
+
+[node name="Spike79" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(3528, 312)
+priority = 1
+style = 1
+
+[node name="Spike36" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1520, 144)
+priority = 1
+
+[node name="Spike29" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1200, 432)
+priority = 1
+
+[node name="Spike30" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1264, 368)
+priority = 1
+
+[node name="Spike24" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(240, 144)
+priority = 1
+
+[node name="Spike4" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(456, 536)
+priority = 1
+style = 1
+
+[node name="Spike7" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(568, 536)
+priority = 1
+style = 1
+
+[node name="Spike12" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(616, 536)
+priority = 1
+style = 1
+
+[node name="Spike13" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(632, 536)
+priority = 1
+style = 1
+
+[node name="Spike14" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(584, 312)
+priority = 1
+style = 1
+
+[node name="Spike16" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(568, 344)
+priority = 1
+style = 1
+
+[node name="Spike19" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(408, 280)
+priority = 1
+style = 1
+
+[node name="Spike25" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(280, 120)
+priority = 1
+style = 1
+
+[node name="Spike26" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(264, 120)
+priority = 1
+style = 1
+
+[node name="Spike17" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(552, 344)
+priority = 1
+style = 1
+
+[node name="Spike38" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1880, 376)
+priority = 1
+style = 1
+
+[node name="Spike39" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1864, 376)
+priority = 1
+style = 1
+
+[node name="Spike15" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(600, 312)
+priority = 1
+style = 1
+
+[node name="Spike8" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(552, 536)
+priority = 1
+style = 1
+
+[node name="Spike5" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(472, 536)
+priority = 1
+style = 1
+
+[node name="Spike2" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(400, 432)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike9" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(560, 464)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike20" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(464, 144)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike32" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1360, 368)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike33" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1424, 176)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike37" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1904, 304)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike45" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2168, 328)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike46" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2168, 344)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike66" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2264, 200)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike67" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2264, 216)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike68" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2648, 168)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike69" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2648, 184)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike70" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2648, 200)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike71" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2648, 216)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike47" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2168, 360)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike49" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2088, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike50" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2104, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike51" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2120, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike52" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2136, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike62" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2280, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike63" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2296, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike64" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2312, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike65" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2328, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike72" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2664, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike73" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2680, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike74" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2696, 232)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike58" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2184, 392)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike59" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2200, 392)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike60" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2216, 392)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike61" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2232, 392)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike53" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2184, 312)
+priority = 1
+style = 2
+
+[node name="Spike54" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2184, 312)
+priority = 1
+style = 2
+
+[node name="Spike55" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2200, 312)
+priority = 1
+style = 2
+
+[node name="Spike56" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2216, 312)
+priority = 1
+style = 2
+
+[node name="Spike57" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2232, 312)
+priority = 1
+style = 2
+
+[node name="Spike48" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(2168, 376)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+priority = 1
+style = 2
+
+[node name="Spike31" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(1192, 360)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Spike27" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(368, 208)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+
+[node name="Spike3" parent="Spikes" instance=ExtResource("6_4xxko")]
+position = Vector2(376, 424)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+priority = 1
+style = 1
+
+[node name="Platform" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(512, 520)
+falls = true
+length = 3
+
+[node name="Platform4" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(224, 488)
+falls = true
+length = 3
+
+[node name="Platform2" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(672, 360)
+falls = true
+length = 3
+
+[node name="Platform3" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(480, 360)
+falls = true
+length = 3
+
+[node name="Platform5" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(416, 104)
+falls = true
+length = 3
+
+[node name="Platform8" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(960, 264)
+falls = true
+length = 3
+
+[node name="Platform11" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1056, 392)
+falls = true
+length = 3
+
+[node name="Platform12" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1152, 200)
+falls = true
+length = 3
+
+[node name="Platform15" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1472, 360)
+falls = true
+length = 3
+
+[node name="Platform16" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1408, 168)
+falls = true
+length = 3
+
+[node name="Platform14" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1312, 392)
+falls = true
+length = 3
+
+[node name="Platform10" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(320, 136)
+falls = true
+length = 3
+
+[node name="Platform6" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(256, 328)
+falls = true
+length = 3
+
+[node name="Platform9" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(192, 200)
+falls = true
+length = 3
+
+[node name="Platform7" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(560, 136)
+falls = true
+
+[node name="Platform13" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1040, 264)
+falls = true
+
+[node name="Platform17" parent="." instance=ExtResource("7_5ur7o")]
+position = Vector2(1360, 232)
+falls = true
+
+[node name="Save" parent="." instance=ExtResource("8_atrlr")]
+position = Vector2(224, 528)
+
+[node name="Save2" parent="." instance=ExtResource("8_atrlr")]
+position = Vector2(320, 304)
+
+[node name="Save3" parent="." instance=ExtResource("8_atrlr")]
+position = Vector2(864, 208)
+
+[node name="Save4" parent="." instance=ExtResource("8_atrlr")]
+position = Vector2(1824, 336)
+
+[node name="Save5" parent="." instance=ExtResource("8_atrlr")]
+position = Vector2(2704, 144)
+
+[node name="Path" parent="." instance=ExtResource("9_iq2ec")]
+position = Vector2(2008, 440)
+curve = SubResource("Curve2D_lv2q2")
+
+[node name="Platform10" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(0, -31.9999)
+
+[node name="Platform11" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(65, -32)
+
+[node name="Platform12" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(130.701, -32)
+
+[node name="Platform13" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(192.519, -32)
+
+[node name="Platform15" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(208, 12.5347)
+
+[node name="Platform16" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(138.403, 16)
+
+[node name="Platform17" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(76.8894, 16)
+
+[node name="Platform18" parent="Path" instance=ExtResource("7_5ur7o")]
+position = Vector2(15.3781, 16)
+
+[node name="Path2" parent="." instance=ExtResource("9_iq2ec")]
+position = Vector2(2104, 280)
+curve = SubResource("Curve2D_lv2q2")
+
+[node name="Platform10" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(0, -31.9999)
+
+[node name="Platform11" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(65, -32)
+
+[node name="Platform12" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(130.701, -32)
+
+[node name="Platform13" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(192.519, -32)
+
+[node name="Platform15" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(208, 12.5347)
+
+[node name="Platform16" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(138.403, 16)
+
+[node name="Platform17" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(76.8894, 16)
+
+[node name="Platform18" parent="Path2" instance=ExtResource("7_5ur7o")]
+position = Vector2(15.3781, 16)
+
+[node name="Path3" parent="." instance=ExtResource("9_iq2ec")]
+position = Vector2(2312, 360)
+curve = SubResource("Curve2D_lv2q2")
+
+[node name="Platform10" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(0, -31.9999)
+
+[node name="Platform11" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(65, -32)
+
+[node name="Platform12" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(130.701, -32)
+
+[node name="Platform13" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(192.519, -32)
+
+[node name="Platform15" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(208, 12.5347)
+
+[node name="Platform16" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(138.403, 16)
+
+[node name="Platform17" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(76.8894, 16)
+
+[node name="Platform18" parent="Path3" instance=ExtResource("7_5ur7o")]
+position = Vector2(15.3781, 16)
+
+[node name="Path4" parent="." instance=ExtResource("9_iq2ec")]
+position = Vector2(2520, 280)
+curve = SubResource("Curve2D_lv2q2")
+
+[node name="Platform10" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(0, -31.9999)
+falls = true
+
+[node name="Platform11" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(65, -32)
+falls = true
+
+[node name="Platform12" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(130.701, -32)
+falls = true
+
+[node name="Platform13" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(192.519, -32)
+falls = true
+
+[node name="Platform15" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(208, 12.5347)
+falls = true
+
+[node name="Platform16" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(138.403, 16)
+falls = true
+
+[node name="Platform17" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(76.8894, 16)
+falls = true
+
+[node name="Platform18" parent="Path4" instance=ExtResource("7_5ur7o")]
+position = Vector2(15.3781, 16)
+falls = true
+
+[node name="PathGraphic" type="Node2D" parent="."]
+position = Vector2(2008, 456)
+
+[node name="TrackSprite" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+frame = 0
+
+[node name="TrackSprite2" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -48)
+frame = 0
+
+[node name="TrackSprite3" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -48)
+frame = 0
+
+[node name="TrackSprite4" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(208, 0)
+frame = 0
+
+[node name="TrackSprite5" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -16)
+
+[node name="TrackSprite6" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -32)
+
+[node name="TrackSprite7" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(16, -48)
+
+[node name="TrackSprite8" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(32, -48)
+
+[node name="TrackSprite9" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(48, -48)
+
+[node name="TrackSprite10" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(64, -48)
+
+[node name="TrackSprite11" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(80, -48)
+
+[node name="TrackSprite12" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(96, -48)
+
+[node name="TrackSprite13" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(112, -48)
+
+[node name="TrackSprite14" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(128, -48)
+
+[node name="TrackSprite15" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(144, -48)
+
+[node name="TrackSprite16" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(160, -48)
+
+[node name="TrackSprite17" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(176, -48)
+
+[node name="TrackSprite18" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(192, -48)
+
+[node name="TrackSprite19" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -32)
+
+[node name="TrackSprite20" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -16)
+
+[node name="TrackSprite21" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(192, 0)
+
+[node name="TrackSprite22" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(176, 0)
+
+[node name="TrackSprite23" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(160, 0)
+
+[node name="TrackSprite24" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(144, 0)
+
+[node name="TrackSprite25" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(128, 0)
+
+[node name="TrackSprite26" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(112, 0)
+
+[node name="TrackSprite27" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(96, 0)
+
+[node name="TrackSprite28" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite29" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite30" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(64, 0)
+
+[node name="TrackSprite31" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(48, 0)
+
+[node name="TrackSprite32" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(32, 0)
+
+[node name="TrackSprite33" parent="PathGraphic" instance=ExtResource("10_spu8b")]
+position = Vector2(16, 0)
+
+[node name="PathGraphic2" type="Node2D" parent="."]
+position = Vector2(2104, 296)
+
+[node name="TrackSprite" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+frame = 0
+
+[node name="TrackSprite2" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -48)
+frame = 0
+
+[node name="TrackSprite3" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -48)
+frame = 0
+
+[node name="TrackSprite4" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(208, 0)
+frame = 0
+
+[node name="TrackSprite5" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -16)
+
+[node name="TrackSprite6" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -32)
+
+[node name="TrackSprite7" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(16, -48)
+
+[node name="TrackSprite8" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(32, -48)
+
+[node name="TrackSprite9" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(48, -48)
+
+[node name="TrackSprite10" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(64, -48)
+
+[node name="TrackSprite11" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(80, -48)
+
+[node name="TrackSprite12" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(96, -48)
+
+[node name="TrackSprite13" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(112, -48)
+
+[node name="TrackSprite14" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(128, -48)
+
+[node name="TrackSprite15" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(144, -48)
+
+[node name="TrackSprite16" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(160, -48)
+
+[node name="TrackSprite17" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(176, -48)
+
+[node name="TrackSprite18" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(192, -48)
+
+[node name="TrackSprite19" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -32)
+
+[node name="TrackSprite20" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -16)
+
+[node name="TrackSprite21" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(192, 0)
+
+[node name="TrackSprite22" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(176, 0)
+
+[node name="TrackSprite23" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(160, 0)
+
+[node name="TrackSprite24" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(144, 0)
+
+[node name="TrackSprite25" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(128, 0)
+
+[node name="TrackSprite26" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(112, 0)
+
+[node name="TrackSprite27" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(96, 0)
+
+[node name="TrackSprite28" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite29" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite30" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(64, 0)
+
+[node name="TrackSprite31" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(48, 0)
+
+[node name="TrackSprite32" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(32, 0)
+
+[node name="TrackSprite33" parent="PathGraphic2" instance=ExtResource("10_spu8b")]
+position = Vector2(16, 0)
+
+[node name="PathGraphic3" type="Node2D" parent="."]
+position = Vector2(2312, 376)
+
+[node name="TrackSprite" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+frame = 0
+
+[node name="TrackSprite2" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -48)
+frame = 0
+
+[node name="TrackSprite3" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -48)
+frame = 0
+
+[node name="TrackSprite4" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(208, 0)
+frame = 0
+
+[node name="TrackSprite5" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -16)
+
+[node name="TrackSprite6" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -32)
+
+[node name="TrackSprite7" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(16, -48)
+
+[node name="TrackSprite8" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(32, -48)
+
+[node name="TrackSprite9" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(48, -48)
+
+[node name="TrackSprite10" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(64, -48)
+
+[node name="TrackSprite11" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(80, -48)
+
+[node name="TrackSprite12" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(96, -48)
+
+[node name="TrackSprite13" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(112, -48)
+
+[node name="TrackSprite14" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(128, -48)
+
+[node name="TrackSprite15" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(144, -48)
+
+[node name="TrackSprite16" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(160, -48)
+
+[node name="TrackSprite17" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(176, -48)
+
+[node name="TrackSprite18" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(192, -48)
+
+[node name="TrackSprite19" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -32)
+
+[node name="TrackSprite20" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -16)
+
+[node name="TrackSprite21" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(192, 0)
+
+[node name="TrackSprite22" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(176, 0)
+
+[node name="TrackSprite23" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(160, 0)
+
+[node name="TrackSprite24" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(144, 0)
+
+[node name="TrackSprite25" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(128, 0)
+
+[node name="TrackSprite26" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(112, 0)
+
+[node name="TrackSprite27" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(96, 0)
+
+[node name="TrackSprite28" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite29" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite30" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(64, 0)
+
+[node name="TrackSprite31" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(48, 0)
+
+[node name="TrackSprite32" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(32, 0)
+
+[node name="TrackSprite33" parent="PathGraphic3" instance=ExtResource("10_spu8b")]
+position = Vector2(16, 0)
+
+[node name="PathGraphic4" type="Node2D" parent="."]
+position = Vector2(2520, 296)
+
+[node name="TrackSprite" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+frame = 0
+
+[node name="TrackSprite2" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -48)
+frame = 0
+
+[node name="TrackSprite3" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -48)
+frame = 0
+
+[node name="TrackSprite4" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(208, 0)
+frame = 0
+
+[node name="TrackSprite5" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -16)
+
+[node name="TrackSprite6" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(0, -32)
+
+[node name="TrackSprite7" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(16, -48)
+
+[node name="TrackSprite8" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(32, -48)
+
+[node name="TrackSprite9" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(48, -48)
+
+[node name="TrackSprite10" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(64, -48)
+
+[node name="TrackSprite11" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(80, -48)
+
+[node name="TrackSprite12" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(96, -48)
+
+[node name="TrackSprite13" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(112, -48)
+
+[node name="TrackSprite14" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(128, -48)
+
+[node name="TrackSprite15" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(144, -48)
+
+[node name="TrackSprite16" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(160, -48)
+
+[node name="TrackSprite17" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(176, -48)
+
+[node name="TrackSprite18" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(192, -48)
+
+[node name="TrackSprite19" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -32)
+
+[node name="TrackSprite20" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(208, -16)
+
+[node name="TrackSprite21" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(192, 0)
+
+[node name="TrackSprite22" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(176, 0)
+
+[node name="TrackSprite23" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(160, 0)
+
+[node name="TrackSprite24" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(144, 0)
+
+[node name="TrackSprite25" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(128, 0)
+
+[node name="TrackSprite26" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(112, 0)
+
+[node name="TrackSprite27" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(96, 0)
+
+[node name="TrackSprite28" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite29" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(80, 0)
+
+[node name="TrackSprite30" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(64, 0)
+
+[node name="TrackSprite31" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(48, 0)
+
+[node name="TrackSprite32" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(32, 0)
+
+[node name="TrackSprite33" parent="PathGraphic4" instance=ExtResource("10_spu8b")]
+position = Vector2(16, 0)
+
+[node name="Large Cylinder" parent="." instance=ExtResource("11_ltp4b")]
+position = Vector2(2880, 208)
+length = 6
+
+[node name="Large Cylinder2" parent="." instance=ExtResource("11_ltp4b")]
+position = Vector2(2496, 112)
+length = 6
+
+[node name="Large Cylinder3" parent="." instance=ExtResource("11_ltp4b")]
+position = Vector2(3424, 208)
+length = 10
+
+[node name="Spring" parent="." instance=ExtResource("12_87g80")]
+position = Vector2(2768, 144)

@@ -11,9 +11,10 @@ func _ready():
 	velocity.x = cos(angle) * speed
 	velocity.y = sin(angle) * speed
 
-func _process(_delta:float):
+func _process(delta:float):
 	if moving:
-		if move_and_collide(velocity):
+		var real_vel = velocity * 50 * delta
+		if move_and_collide(real_vel):
 			moving = false
 	velocity.y += gravity
 

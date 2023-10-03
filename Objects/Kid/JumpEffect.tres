@@ -1,0 +1,10 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://rf3j5rqfl86"]
+
+[ext_resource type="Texture2D" uid="uid://c7yi2q65h7hhd" path="res://Assets/Kid/JumpEffect_0.png" id="1_i2q7s"]
+[ext_resource type="Texture2D" uid="uid://dxg63onp3qpym" path="res://Assets/Kid/JumpEffect_1.png" id="2_wvl6b"]
+
+[resource]
+frames = 2
+frame_0/texture = ExtResource("1_i2q7s")
+frame_1/texture = ExtResource("2_wvl6b")
+frame_1/duration = 1.0

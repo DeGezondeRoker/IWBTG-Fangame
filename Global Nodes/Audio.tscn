@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddtl7ltac4gee"]
+
+[ext_resource type="AudioStream" uid="uid://bbw41gb5ev2pa" path="res://Assets/Sounds/Kid/Jump.wav" id="1_6k56f"]
+[ext_resource type="AudioStream" uid="uid://hyblkglmrc4p" path="res://Assets/Sounds/Kid/Death.wav" id="1_7c7e1"]
+[ext_resource type="Script" path="res://Scripts/Global/Audio.gd" id="1_knfqv"]
+[ext_resource type="AudioStream" uid="uid://bho6cfwt7wa02" path="res://Assets/Sounds/Kid/DJump.wav" id="3_hu3pk"]
+[ext_resource type="AudioStream" uid="uid://h3kqn6dx5vj8" path="res://Assets/Sounds/Kid/Shoot.wav" id="4_3mckt"]
+[ext_resource type="AudioStream" uid="uid://bcr0rdwgemhos" path="res://Assets/Sounds/Kid/WallJump.wav" id="5_svabv"]
+[ext_resource type="AudioStream" uid="uid://bvebp7abvglhd" path="res://Assets/Sounds/Objects/Spring.wav" id="6_earwk"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_knfqv")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7c7e1")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_6k56f")
+
+[node name="DJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hu3pk")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3mckt")
+
+[node name="WallJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_svabv")
+
+[node name="Spring" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_earwk")
+volume_db = -10.0

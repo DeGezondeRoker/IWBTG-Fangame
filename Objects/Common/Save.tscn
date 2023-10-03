@@ -7,6 +7,7 @@
 size = Vector2(28, 20)
 
 [node name="Save" type="Area2D"]
+z_index = -2
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_muuut")
@@ -17,6 +18,7 @@ texture = ExtResource("1_llhdy")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_otl5k")
 

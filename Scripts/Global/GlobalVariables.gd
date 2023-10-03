@@ -1,0 +1,4 @@
+extends Node
+
+enum STATES {DEFAULT, DEAD, VINE, CYLINDER, WARP, EXIT_WARP}
+enum DIRECTIONS {RIGHT = 1, LEFT = -1}

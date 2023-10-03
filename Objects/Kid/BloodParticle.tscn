@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://b1absbd3m5pf"]
 
 [ext_resource type="Script" path="res://Scripts/Kid/BloodParticle.gd" id="1_fmdss"]
 [ext_resource type="Texture2D" uid="uid://cc3x37y0gfxmk" path="res://Assets/Kid/Blood.png" id="2_s4bt5"]
@@ -7,6 +7,7 @@
 size = Vector2(1, 1)
 
 [node name="Blood Particle" type="AnimatableBody2D"]
+texture_filter = 1
 collision_layer = 0
 collision_mask = 6
 sync_to_physics = false
@@ -18,7 +19,6 @@ hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_61dy7")
-disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

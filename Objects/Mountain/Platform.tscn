@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://e4jvb7t78nwe"]
+
+[ext_resource type="Script" path="res://Scripts/Mountain/Platform.gd" id="1_gbkxr"]
+[ext_resource type="Texture2D" uid="uid://ib31yavm6hjd" path="res://Assets/Mountain/Platform.png" id="2_nq4ex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hjkn"]
+size = Vector2(32, 15.95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfnhc"]
+size = Vector2(32, 12)
+
+[node name="Platform" type="AnimatableBody2D"]
+z_index = -1
+texture_filter = 1
+collision_layer = 0
+collision_mask = 16
+sync_to_physics = false
+script = ExtResource("1_gbkxr")
+metadata/grants_jump = true
+
+[node name="SpriteL" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+texture = ExtResource("2_nq4ex")
+hframes = 3
+
+[node name="SpriteR" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("2_nq4ex")
+hframes = 3
+frame = 1
+
+[node name="ExtraSprites" type="Node2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.0250001)
+shape = SubResource("RectangleShape2D_1hjkn")
+
+[node name="KidCollision" type="AnimatableBody2D" parent="."]
+collision_mask = 0
+sync_to_physics = false
+
+[node name="Collision" type="CollisionShape2D" parent="KidCollision"]
+visible = false
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_sfnhc")
+one_way_collision = true

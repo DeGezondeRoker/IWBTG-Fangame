@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbv5pab6w6vpy"]
+
+[ext_resource type="Script" path="res://Scripts/Gimmicks/LargeCylinder.gd" id="1_n26qf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0tm0"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d07a"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tvpj"]
+size = Vector2(16, 112)
+
+[node name="Large Cylinder" type="Node2D"]
+script = ExtResource("1_n26qf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.466667)
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = 48.0
+
+[node name="Collision" type="AnimatableBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_t0tm0")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, 40)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_8d07a")
+one_way_collision = true
+
+[node name="ExitArea" type="Area2D" parent="." groups=["cylinders"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+shape = SubResource("RectangleShape2D_2tvpj")

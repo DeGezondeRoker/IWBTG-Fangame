@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt1gxwhdo2ayr"]
+
+[ext_resource type="Script" path="res://Scripts/Global/Room.gd" id="1_aknm2"]
+[ext_resource type="PackedScene" uid="uid://xcmgada1gq11" path="res://Objects/Kid/Kid.tscn" id="2_ufa6i"]
+[ext_resource type="TileSet" uid="uid://dbfgen5thifwh" path="res://Assets/Tilesets/IWBTG.tres" id="3_5awmk"]
+[ext_resource type="PackedScene" uid="uid://lb26itieg3ir" path="res://Objects/Common/Entrance.tscn" id="4_r5ryr"]
+
+[node name="Template" type="Node2D"]
+script = ExtResource("1_aknm2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="Kid" parent="." instance=ExtResource("2_ufa6i")]
+position = Vector2(16, 24)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("3_5awmk")
+format = 2
+
+[node name="EntranceID0" parent="." instance=ExtResource("4_r5ryr")]
+position = Vector2(40, 24)

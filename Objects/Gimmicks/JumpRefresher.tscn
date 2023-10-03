@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt5iyiq787gqo"]
+
+[ext_resource type="Texture2D" uid="uid://rnpna0uw5xpi" path="res://Assets/Gimmicks/JumpRefresher.png" id="1_4msn1"]
+[ext_resource type="Script" path="res://Scripts/Gimmicks/JumpRefresher.gd" id="1_cf5it"]
+[ext_resource type="PackedScene" uid="uid://ppxmaeg5721g" path="res://Objects/Movement/Rotate.tscn" id="2_obv43"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7wqn"]
+radius = 8.0
+
+[node name="JumpRefresher" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_cf5it")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_4msn1")
+hframes = 4
+
+[node name="Rotate" parent="." instance=ExtResource("2_obv43")]
+rotate_speed = 10.0
+radius = 11
+track = false
+
+[node name="Sprite" type="Sprite2D" parent="Rotate"]
+position = Vector2(11, 0)
+texture = ExtResource("1_4msn1")
+hframes = 4
+frame = 2
+
+[node name="Sprite2" type="Sprite2D" parent="Rotate"]
+position = Vector2(-11, 1.34707e-15)
+texture = ExtResource("1_4msn1")
+hframes = 4
+frame = 2
+
+[node name="Rotate2" parent="." instance=ExtResource("2_obv43")]
+rotate_speed = 10.0
+offset = -19
+radius = 11
+track = false
+
+[node name="Sprite" type="Sprite2D" parent="Rotate2"]
+position = Vector2(10.4007, -3.58125)
+texture = ExtResource("1_4msn1")
+hframes = 4
+frame = 3
+
+[node name="Sprite2" type="Sprite2D" parent="Rotate2"]
+position = Vector2(-10.4007, 3.58125)
+texture = ExtResource("1_4msn1")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_m7wqn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

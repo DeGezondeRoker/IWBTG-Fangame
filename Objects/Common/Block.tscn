@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://yt8oybd8rmm4"]
 
 [ext_resource type="Script" path="res://Scripts/Common/Block.gd" id="1_n0odh"]
 [ext_resource type="Texture2D" uid="uid://dnoan6ep28jty" path="res://Assets/Common/Block.png" id="1_rfbf2"]
@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="Block" type="AnimatableBody2D"]
+z_index = -1
 texture_filter = 1
 collision_layer = 3
 collision_mask = 3
@@ -17,4 +18,5 @@ texture = ExtResource("1_rfbf2")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_5k21r")

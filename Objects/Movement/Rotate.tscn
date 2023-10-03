@@ -4,6 +4,7 @@
 
 [node name="Rotate" type="Node2D"]
 script = ExtResource("1_sor8j")
+track = null
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
